@@ -1,3 +1,3 @@
-# python_scratch
+# pyScratch
 
 Useful python functions and utilities
