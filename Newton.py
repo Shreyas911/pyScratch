@@ -3,7 +3,19 @@ import line_search
 import warnings
 import numpy as np
 
-def inexactNewtonCGiter(action_of_hessian_on_vector, eval_obj_func, m, g, n, convergence_level):
+def inexactNewtonCGiter(action_of_hessian_on_vector, eval_obj_func, m, g, n, convergence_level,
+						c1 = 1.e-4, alpha_init = 1.0):
+
+	'''
+	action_of_matrix_on_vector - Function that returns action of nxn matrix H on any given n vector x
+	eval_obj_func - Evaluate objective function, takes in m as input
+	m - Parameters
+	p - Newton direction
+	g - Gradient
+	convergence_level - 0 for linear, 1 for superlinear, 2 for quadratic
+	c1 - Paramteter to quantify sufficient descent
+	alpha_init - Initial guess for alpha, which decides the step length
+	'''
 
 	p = CG.linear_CG(action_of_hessian_on_vector, g, n, convergence_level)
 	alpha = line_search.backtrackingArmijoLineSearch(eval_obj_func, m, p, g, c1 = 1.e-4)
