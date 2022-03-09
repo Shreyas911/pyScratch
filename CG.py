@@ -13,7 +13,8 @@ def linear_CG(action_of_matrix_on_vector, g, n, convergence_level):
 	convergence_level - 0 for linear, 1 for superlinear, 2 for quadratic
 	'''
 
-	if len(g) != n:
+	# If g is a scalar getattr returns 1
+	if getattr(g, '__len__', lambda:1)() != n:
 		raise ValueError("Dimensions of g not equal to n.")
 
 	if convergence_level == 0:
@@ -41,12 +42,15 @@ def linear_CG(action_of_matrix_on_vector, g, n, convergence_level):
 		alpha = np.dot(r,r) / np.dot(v,Hv)
 
 		if np.dot(v,Hv) < 0:
+			print(v, Hv)
+			print("Hessian not positive definite, breaking now.")
 			break
 
 		p = p + alpha*v
 		r_new = r - alpha*Hv
 
 		if np.linalg.norm(r_new) <= eps_TOL:
+			print("Tolerance achieved for linear CG.")
 			break
 
 		beta = np.dot(r_new,r_new) / np.dot(r,r)
@@ -61,6 +65,7 @@ def linear_CG(action_of_matrix_on_vector, g, n, convergence_level):
 			break
 
 		r = np.copy(r_new)
+
 	return p
 
 if __name__ == "__main__":
