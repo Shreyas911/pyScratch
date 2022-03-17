@@ -17,7 +17,7 @@ def inexactNewtonCGiter(action_of_hessian_on_vector, eval_obj_func, m, g, n, con
 	alpha_init - Initial guess for alpha, which decides the step length
 	'''
 
-	p = CG.linear_CG(action_of_hessian_on_vector, g, n, convergence_level)
+	p = CG.linear_CG(action_of_hessian_on_vector, m, g, n, convergence_level)
 	alpha = line_search.backtrackingArmijoLineSearch(eval_obj_func, m, p, g, c1 = 1.e-4)
 
 	m_new = m + alpha * p 
@@ -29,8 +29,8 @@ if __name__ == '__main__':
 	def eval_obj_func(m):
 		return (m-100.0)**2
 
-	def action_of_hessian_on_vector(m):
-		return 2.0*m 
+	def action_of_hessian_on_vector(m,x):
+		return 2.0*x
 
 	def get_gradient(m):
 		return 2.*(m-100)

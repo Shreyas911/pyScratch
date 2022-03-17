@@ -1,7 +1,7 @@
 import numpy as np
 import warnings
 
-def linear_CG(action_of_matrix_on_vector, g, n, convergence_level):
+def linear_CG(action_of_matrix_on_vector, m, g, n, convergence_level):
 
 	'''
 	Generally used in solving H p = -g
@@ -30,14 +30,14 @@ def linear_CG(action_of_matrix_on_vector, g, n, convergence_level):
 
 
 	p = np.zeros((n), dtype = float)
-	Hp = action_of_matrix_on_vector(p)
+	Hp = action_of_matrix_on_vector(m, p)
 	r = -g - Hp
 	v = np.copy(r)
 
 	i = 0
 	while True:
 
-		Hv = action_of_matrix_on_vector(v)
+		Hv = action_of_matrix_on_vector(m, v)
 
 		alpha = np.dot(r,r) / np.dot(v,Hv)
 
@@ -72,12 +72,10 @@ if __name__ == "__main__":
 
 	A = np.diag(2.0**np.arange(1,6, dtype = float))
 
-	# Define a function to compute action of A on vector x
-	def action_of_A(x):
+	# Define a function to compute action of A on vector x at state m
+	def action_of_A(m,x):
 		return np.squeeze(np.matmul(A,x))
 
 	# If you increase ||g||, we are far away from a minimum
 	# So p won't be calculated super accurately
-	p = linear_CG(action_of_A, 0.0001*np.ones((5)), 5, 1)
-
-
+	p = linear_CG(action_of_A, 0.0, 0.0001*np.ones((5)), 5, 1)
