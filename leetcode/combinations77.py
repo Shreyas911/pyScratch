@@ -1,8 +1,8 @@
 class Solution:
 
-	def combine(self, n: int, k: int) -> List[List[int]]:
+	""" 77. Combinations """
 
-		""" 77. Combinations """
+	def combine(self, n: int, k: int) -> List[List[int]]:
 
 		side_list = []
 		result = []
@@ -19,3 +19,11 @@ class Solution:
 				result.append([i])
 
 		return result
+
+	def combine(self, n: int, k: int) -> List[List[int]]:
+
+		arr = []
+		for i in range(1,n+1):
+			arr.append(i)
+
+		return list(combinations(arr, k))

@@ -1,8 +1,8 @@
 class Solution:
 
+	""" 724. Find Pivot Index """
+
 	def pivotIndex(self, nums: List[int]) -> int:
-	
-		""" 724. Find Pivot Index """
 	
 		leftSum = 0
 		rightSum = sum(nums[1:])

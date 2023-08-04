@@ -1,9 +1,9 @@
 class Solution:
 
+	""" 392. Is Subsequence """
+
 	def isSubsequence(self, s: str, t: str) -> bool:
-	
-		""" 392. Is Subsequence """
-	
+		
 		index = 0
 	
 		if not s:
