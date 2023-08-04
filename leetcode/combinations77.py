@@ -1,3 +1,5 @@
+from itertools import combinations
+
 class Solution:
 
 	""" 77. Combinations """
@@ -20,7 +22,7 @@ class Solution:
 
 		return result
 
-	def combine(self, n: int, k: int) -> List[List[int]]:
+	def combine2(self, n: int, k: int) -> List[List[int]]:
 
 		arr = []
 		for i in range(1,n+1):
