@@ -1,9 +1,9 @@
 class Solution:
 
+	""" 205. Isomorphic Strings """
+
 	def isIsomorphic(self, s: str, t: str) -> bool:
-	
-		""" 205. Isomorphic Strings """
-	
+		
 		sDict = {}
 		tDict = {}
 	
