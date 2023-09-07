@@ -1,0 +1,17 @@
+# TIDE TABLE
+#---------------------------------------------------------
+# Created by:   Danish Meteorological Institute
+# Station:      Qeqertarsuaq
+# Stat.number:  99999 (Not given)
+# Country:      Greenland
+# Data source:  GST
+# Latitude:      69 15 N  =   69.2473
+# Longitude:    -53 33 W  =  -53.5477
+# Time Zone:    New West Greenlandic standard time [UTC -2 hours]
+# Reference:    Chart datum = Lowest Astronomical Tide (LAT)
+# LAT:           -132.2 cm (rel. to MSL)
+# MLWS:           -94.2 cm (rel. to MSL)
+# Z0:             374.6 cm (rel. to MSL)
+# Parameter:    Tidal height at high and low water [cm]
+# Data format:  <yyyymmddHHMM> <cm>
+#---------------------------------------------------------
